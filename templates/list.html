@@ -1,0 +1,45 @@
+{% extends "base-inner.html" %}
+
+{% block title %}Product List{% endblock %}
+
+{% block content %}
+<div id ="content">
+	<nav id="breadcrumb">
+	<ul>
+	  <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+	     <a itemprop="url" rel="up up up" href="/">
+	        <span itemprop="title">首页<span>
+	     </a>
+	  </li>
+	  <li>></li>
+	  <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+	     <a class="nobr" itemprop="url" rel="up up" href="/product/">
+	        <span itemprop="title">面膜</span>
+	     </a>
+	     
+	  </li>
+	  <li>></li>
+	  <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+	     <a itemprop="url" rel="up">
+	        <span itemprop="title">面膜</span>
+	     </a>
+	  </li>
+
+	</ul>
+	</nav>
+		<div class="container">
+		{% for i in products %}
+	<div class="item">
+	  <div class="col">
+	  <img src = "../static/images/product.png" width="150" height="160" / >
+	  </div>
+	  <div class="col">
+	  <p>name</p>
+	  <p>price</p>
+	  <a href="#"  class="btn">查看详情</a>
+	  </div>
+	</div>
+	{% endfor %}
+	</div>
+</div>
+{% endblock %}

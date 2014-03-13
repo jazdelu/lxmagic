@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="keywords" content="Woman makeup "/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Description" content="Welcome to LXMAGIC"/>
+
+<title>{% block title %}{% endblock %}</title>
+
+
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+{% block css %}
+{% endblock %}
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+<div id="page-wrap">
+    <header id ="header">
+    	<div id="inner-head">
+    		<a href="/"><img src="/static/images/logo.png" id="logo" /></a>
+    		<nav id ="main-nav">
+    			<ul>
+    			<li><a href="/news/">近期活动</a></li>
+    			<li><a href="/product/">所有产品</a></li>
+    			<li><a href="/">首页</a></li>
+
+    			</ul>
+    		</nav>
+    	</div>
+    </header>
+    {% block wrap %}
+    {% endblock %}
+    <footer id="footer">
+		<nav id ="foot-nav">
+      <ul>
+          <li><a href="#">帮助</a></li>
+          <li><a href="#">关于我们</a></li>
+          <li><a href="#">联系我们</a></li>
+          <li><a href="#">法律声明</a></li>
+      </ul>
+    </nav>
+    <p>浙ICP XXXXXXXXXXX</p>
+    <p>香港临希化妆品有限公司 版权所有</p>
+	</footer>
+</div>
+<script src="http://cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+{% block js %}
+{% endblock %}
+</body>
+</html>
