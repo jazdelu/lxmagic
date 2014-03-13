@@ -56,4 +56,5 @@ docs/_build/
 #Test File & Database File
 *.sqlite3
 local_settings.py
+manage.py
 */migrations/
