@@ -155,10 +155,10 @@ header
 /************************************************************************************
 banner
 *************************************************************************************/
-#banner { position: relative; overflow: auto; width: 100%; margin: 0;padding: 0;}
-#banner ul { list-style: none;  width: 100%;margin: 0;padding: 0; }
-#banner ul li { float: left; margin: 0;padding: 0}
-#banner ul a{
+.banner { position: relative; overflow: hidden; width: 100%; margin: 0;padding: 0;}
+.banner ul { list-style: none;  width: 100%;margin: 0;padding: 0; }
+.banner ul li { float: left; margin: 0;padding: 0}
+.banner ul a{
 	margin: 0;
 	padding: 0;
 	display: block;
