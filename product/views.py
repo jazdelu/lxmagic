@@ -24,7 +24,7 @@ def get_product_by_id(request,pid):
 		next_p = products[i+1]
 		prev_p = products[i-1]
 
-	return render_to_response('detail.html',{'product':product,'next_p':next_p,'prev_p'=prev_p},context_instance=RequestContext(request))	
+	return render_to_response('detail.html',{'product':product,'next_p':next_p,'prev_p':prev_p},context_instance=RequestContext(request))	
 
 def get_products_by_category(request,hierarchy):
 	slugs = hierarchy.split('/')
