@@ -55,7 +55,7 @@ $(document).ready(function(){
 		if ($('#id_link_type').val() == 'category'){
 			$(".field-category").css("display","table-header-group");
 			$(".field-link").css("display","none")
-			$('#id_link').attr('value','http://'+window.location.hostname+':8000/#');
+			$('#id_link').attr('value','http://'+window.location.hostname+'/#');
 		}
 		else if ($('#id_link_type').val() == 'link'){
 			$('#id_link').removeAttr('readonly');
@@ -73,13 +73,13 @@ $(document).ready(function(){
 		if ($(this).val() == 'news'){
 			$(".field-link").css("display","table-header-group")
 			$('#id_link').attr('readonly','readonly');
-			$('#id_link').attr('value','http://'+window.location.hostname+':8000/news/');
+			$('#id_link').attr('value','http://'+window.location.hostname+'/news/');
 			$(".field-category").css("display","none");
 			$('#id_category').attr('value','');
 		}
 		else if ($(this).val() == 'category'){
 			$(".field-link").css("display","none");
-			$('#id_link').attr('value','http://'+window.location.hostname+':8000/#');
+			$('#id_link').attr('value','http://'+window.location.hostname+'/#');
 			$(".field-category").css("display","table-header-group");
 		}
 		else {

@@ -37,8 +37,8 @@ class MenuItem(MPTTModel):
 	name = models.CharField(max_length = 128,verbose_name =u'菜单项目名称')
 	link_type = models.CharField(max_length = 128,verbose_name = u'菜单类型',choices = MENUITEM_CATEGORY_CHOICES)
 	category = TreeForeignKey('product.Category',verbose_name = u'产品分类目录', blank = True, null = True,related_name = 'menuitems')
-	link = models.URLField(verbose_name = '链接地址',help_text = u'例: http://example.com/product/  所有商品列表')
-	order = models.IntegerField(verbose_name = u'菜单项顺序',help_text = u'菜单顺序将按从大到小排列')
+	link = models.URLField(verbose_name = '链接地址',help_text = u'例: http://www.hklxmagic.com/product/  所有商品列表')
+	order = models.IntegerField(verbose_name = u'菜单项顺序',help_text = u'必须为整数,菜单顺序将按从大到小排列')
 
 	class MPTTMeta:
 		order_insertion_by = ['-order']
