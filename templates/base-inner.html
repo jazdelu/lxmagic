@@ -6,8 +6,29 @@
     	<section class="widget">
     		<nav  id='side-nav'>
     			<ul>
-    				<li><a href="/product/">面膜</a></li>
-    				<li><a href="/product/">面膜</a></li>
+                    {% for i in sidebar.menuitems.all %}
+                        {% if i.category %}
+                            {% if i.children.all %}
+                            <li><a href="{{ i.category.get_url }}">{{ i.name }}</a>
+                                <ul>
+                                    {% for si in i.children.all %}
+                                        {% if si.category %}
+                                        <li><a href="{{ si.category.get_url }}">{{ si.name }}</a></li>
+                                        {% else %}
+                                        <li><a href="{{ si.link }}">{{ si.name }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            {% elif i.is_root_node %}
+                            <li><a href="{{ i.category.get_url }}">{{ i.name }}</a>
+                            {% endif %}
+                        {% else  %}
+                        <li><a href="{{ i.link }}">{{ i.name }}</a></li>
+                        {% endif %}
+                    {% empty %}
+                    <label>请在后台配置相关菜单</label>
+                    {% endfor %}
     			</ul>
     		</nav>
     	</section>
@@ -15,4 +36,35 @@
     {% block content %}
     {% endblock %}
     </div>
+{% endblock %}
+{% block js %}
+<script type="text/javascript">
+var closing = undefined;
+var closingInterval = undefined;
+
+function doClose() {
+    $(closing).children("ul").stop(true, true).slideUp(100);
+    closing = undefined;
+    closingInterval = undefined;
+}
+$("#side-nav>ul>li").children("ul").hide();
+$("#side-nav>ul>li>a").mouseenter(function() {
+    var $menu = $(this).closest('li');
+    if (closing) {
+        clearTimeout(closingInterval);
+        if (closing != $menu[0]) {
+            doClose();
+        }
+        else {
+            closing = undefined;
+            closingInterval = undefined;
+        }
+    }
+    $menu.children("ul").stop(true, true).slideDown(100);
+});
+$("#side-nav>ul>li").mouseleave(function() {
+    closing = this;
+    closingInterval = setTimeout(doClose, 100);
+});
+</script>
 {% endblock %}

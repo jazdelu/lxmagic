@@ -12,11 +12,11 @@
           {% for n in news %}
           <div class="news">
             <div class="cover">
-              <img src="../static/images/product.png"/>
+              <img src="{{ n.thumb_middle.url }}"/>
             </div>
             <div class="info">
-              <p>这里是活动名称</p>
-              <p>活动详情</p>
+              <p>{{ n.name }}</p>
+              <p>点击查看活动详情</p>
             </div>
           </div>
           {% endfor %}

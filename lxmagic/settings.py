@@ -1,3 +1,6 @@
+#coding:utf8
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+from django.conf import settings
 """
 Django settings for lxmagic project.
 
@@ -30,12 +33,21 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'south',
+    'banner',
+    'product',
+    'news',
+    'menu',
+    'redactor',
+    'mptt',
+    'smart_selects',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -45,6 +57,20 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+    'product.processors.get_parent_categories',
+)
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates/'),
 )
 
 ROOT_URLCONF = 'lxmagic.urls'
@@ -68,15 +94,15 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-CN'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
@@ -86,12 +112,48 @@ STATICFILES_FINDERS = (
 )
 
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/'),
 
-MEDIA_URL = '/upload/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'upload/')
+STATIC_URL = '/static/'
+MEDIA_URL = ' /u/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'u/'),
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates/'),
 )
+# Django Suit configuration example
+SUIT_CONFIG = {
+    # header
+    'ADMIN_NAME': 'LXMAGIC Website Manager',
+    'HEADER_DATE_FORMAT': 'Y-m-d',
+    'HEADER_TIME_FORMAT': 'H:i',
+
+    # forms
+    # 'SHOW_REQUIRED_ASTERISK': True,  # Default True
+    # 'CONFIRM_UNSAVED_CHANGES': True, # Default True
+
+    # menu
+    'MENU':(
+        {'app':'auth','label':u'用户管理','icon':'icon-user'},
+        {'app':'banner','label':u'幻灯片管理','icon':'icon-picture'},
+        {'app':'product','label':u'产品管理','icon':'icon-shopping-cart'},
+        {'app':'news','label':u'活动管理','icon':'icon-edit'},
+        {'app':'menu','label':u'菜单管理','icon':'icon-bookmark'},
+    ),
+    # 'SEARCH_URL': '/admin/auth/user/',
+    'MENU_ICONS': {
+        'banner': 'icon-play',
+        'auth': 'icon-user',
+     },
+    'MENU_OPEN_FIRST_CHILD': True, # Default True
+    # 'MENU_EXCLUDE': ('auth.group',),
+
+
+    # misc
+    'LIST_PER_PAGE': 15
+} 'LIST_PER_PAGE': 15
+}
+#Redactor Settings
+REDACTOR_OPTIONS = {'lang': 'zh'}
+REDACTOR_UPLOAD = 'u/'

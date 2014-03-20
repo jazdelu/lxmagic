@@ -3,34 +3,37 @@
 
 {% block content %}
 <div id ="content">
-<nav id="breadcrumb">
-   <ul>
-      <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-         <a itemprop="url" rel="up up up" href="/">
-            <span itemprop="title">首页<span>
-         </a>
-      </li>
-      <li>></li>
-      <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-         <a class="nobr" itemprop="url" rel="up up" href="/product/">
-            <span itemprop="title">面膜</span>
-         </a>
-         
-      </li>
-      <li>></li>
-      <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-         <a itemprop="url" rel="up" href="/product/">
-            <span itemprop="title">面膜</span>
-         </a>
-      </li>
-      <li>></li>
-      <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-         <a itemprop="url" rel="up">
-            <span itemprop="title">shenme</span>
-         </a>
-      </li>
-   </ul>
-</nav>
+  <nav id="breadcrumb">
+  <ul>
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+       <a itemprop="url" rel="up up up" href="/">
+          <span itemprop="title">首页<span>
+       </a>
+    </li>
+    <li>></li>
+    {% for a in product.category.get_ancestors %}
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+       <a itemprop="url" rel="up" href="{{ a.get_url }}/">
+          <span itemprop="title">{{a.name}}</span>
+       </a>
+    </li>
+    <li>></li>
+    {% endfor %}
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+       <a itemprop="url" rel="up" href="{{ product.category.get_url }}/">
+          <span itemprop="title">{{product.category.name}}</span>
+       </a>
+    </li>
+    <li>></li>
+    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+       <a itemprop="url" rel="up">
+          <span itemprop="title">{{product.name}}</span>
+       </a>
+    </li>
+
+
+  </ul>
+  </nav>
     <div class="page">
       <a href="#">下一个▶</a>
       <a href="#">◀上一个</a>
@@ -63,7 +66,7 @@
 </div>
 {% endblock %}
 {% block js %}
-<script src="/static/js/jquery-ui.min.js"></script>
+<script src="/static/lxmagic/js/jquery-ui.min.js"></script>
 <script type="text/javascript">  
   $(function() {
     $( "#tab" ).tabs();
