@@ -27,7 +27,9 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'www.hklxmagic.com'
+]
 
 
 # Application definition
@@ -152,8 +154,8 @@ SUIT_CONFIG = {
 
     # misc
     'LIST_PER_PAGE': 15
-} 'LIST_PER_PAGE': 15
 }
+
 #Redactor Settings
 REDACTOR_OPTIONS = {'lang': 'zh'}
 REDACTOR_UPLOAD = 'u/'
