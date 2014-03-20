@@ -1,0 +1,23 @@
+{% extends "base-inner.html" %}
+{% block title %}{{ news.title }}{% endblock %}
+
+{% block content %}
+<div id ="content">
+      <nav id="breadcrumb">
+        <ul>
+           <li>{{ news.name}}</li>
+        </ul>
+      </nav>
+    <div class="container">
+      {{news.content|safe}}
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="/static/lxmagic/js/jquery-ui.min.js"></script>
+<script type="text/javascript">  
+  $(function() {
+    $( "#tab" ).tabs();
+  });
+</script>
+{% endblock %}

@@ -8,7 +8,7 @@ import datetime
 # Create your models here.
 class News(models.Model):
 	name = models.CharField(max_length = 128,verbose_name=u'活动名称')
-	cover = models.ImageField(upload_to= 'news/',verbose_name = u'活动封面')
+	cover = models.ImageField(upload_to= 'news/cover/',verbose_name = u'活动封面')
 	thumb_small= ImageSpecField(source=u"cover",processors=[ResizeToFit(100)],format="JPEG",options={"quality": 80})	
 	thumb_middle= ImageSpecField(source=u"cover",processors=[ResizeToFill(350,230)],format="JPEG",options={"quality": 80})	
 	content = models.TextField(verbose_name = u'活动内容')
