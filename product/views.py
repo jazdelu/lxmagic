@@ -18,7 +18,7 @@ def get_product_by_id(request,pid):
 	prev_p =''
 	if (i == 0):
 		next_p = products[i+1]
-	elif (i == len(products)):
+	elif (i == len(products)-1):
 		prev_p = products[i-1]
 	else:
 		next_p = products[i+1]
