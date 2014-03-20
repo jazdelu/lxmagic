@@ -157,4 +157,4 @@ SUIT_CONFIG = {
 
 #Redactor Settings
 REDACTOR_OPTIONS = {'lang': 'zh'}
-REDACTOR_UPLOAD = 'u/'
+REDACTOR_UPLOAD = 'u/news/'
