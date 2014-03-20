@@ -287,7 +287,7 @@ Product list
 *************************************************************************************/
 .container{
 	width: 100%;
-	min-height: 360px;
+	min-height: 300px;
 	margin: 0;
 	padding: 0;
 	position: relative;

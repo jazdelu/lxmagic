@@ -12,7 +12,7 @@ def get_product_by_id(request,pid):
 		product = Product.objects.get(id = pid)
 	except Product.DoesNotExist:
 		raise Http404
-	products = Product.objects.all()
+	products = list(Product.objects.all())
 	i = products.index(product)
 	next_p =''
 	prev_p =''
