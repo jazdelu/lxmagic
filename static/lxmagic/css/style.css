@@ -417,6 +417,8 @@ tab
 #tab .ui-tabs-panel{
 	padding:30px 0px;
 	margin-bottom: 10px;
+	font-size: 14px;
+	line-height: 26px;
 }
 
 /************************************************************************************
