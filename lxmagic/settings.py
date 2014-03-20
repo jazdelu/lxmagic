@@ -49,7 +49,6 @@ INSTALLED_APPS = (
     'menu',
     'redactor',
     'mptt',
-    'smart_selects',
 )
 
 MIDDLEWARE_CLASSES = (
