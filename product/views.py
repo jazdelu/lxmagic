@@ -26,13 +26,20 @@ def get_product_by_id(request,pid):
 			prev_p = products[i-1]
 	else:
 		pass
-
 	return render_to_response('detail.html',{'product':product,'next_p':next_p,'prev_p':prev_p},context_instance=RequestContext(request))	
 
 def get_products_by_category(request,hierarchy):
 	slugs = hierarchy.split('/')
-	category = Category.objects.get(slug = slugs[-1])
-	products = Product.objects.filter(category = category)
+	category =''
+	products = []
+	try:
+		category = Category.objects.get(slug = slugs[-2])
+	except:
+		print hierarchy
+		print slugs
+		print slugs[-1]
+	if category:
+		products = Product.objects.filter(category = category)
 
 	return render_to_response('list.html',{'products':products,'category':category},context_instance=RequestContext(request))
 

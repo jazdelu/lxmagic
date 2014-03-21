@@ -21,15 +21,10 @@ class Category(MPTTModel):
 		return self.name
 
 	def get_url(self):
-		url = '/product/'	
-		url_temp = ''
+		url = '/product/'
 		c = self
-		while c.get_level()>=0:
-			url_temp = c.slug +'/'+ url_temp
-			c = c.parent
-			if not c:
-				break;
-		url = url+url_temp
+		for c in c.get_ancestors(include_self = True):
+			url +=c.slug+'/'
 		return url
 
 

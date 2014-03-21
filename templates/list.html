@@ -14,16 +14,16 @@
 	  <li>></li>
 	  {% if category %}
 	  {% for a in category.get_ancestors %}
-	  <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-	     <a itemprop="url" rel="up up up" href="{{ a.get_url }}">
-	        <span itemprop="title">{{ a.name }}<span>
+	  <li>
+	     <a href="{{ a.get_url }}">
+	        <span>{{ a.name }}<span>
 	     </a>
 	  </li>
 	  <li>></li>
 	  {% endfor %}
-	  <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-	     <a itemprop="url" rel="up up up" href="{{ a.get_url }}">
-	        <span itemprop="title" class= "current">{{ category.name }}<span>
+	  <li>
+	     <a href="{{ a.get_url }}">
+	        <span class= "current">{{ category.name }}<span>
 	     </a>
 	  </li>
 	  {% else %}
