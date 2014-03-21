@@ -112,12 +112,14 @@ header
 	border-bottom:7px solid #bda873;
 }
 #inner-head{
-	width: 960px;
+	width: 1000px;
 	margin: 0 auto;
-	padding:40px 20px;
+	padding:40px 0;
 }
-#logo{
+.logo{
 	float: left;
+	display: block;
+	width: 300px;
 }
 #main-nav ul{
 	width: 700px;
@@ -148,7 +150,7 @@ header
 	color:#ccc;
 }
 #wrap {
-	width: 1080px;
+	width: 1000px;
 	min-height: 600px;
 	margin: 0 auto;
 }
@@ -181,13 +183,17 @@ banner
 sidebar
 *************************************************************************************/
 #sidebar {
-	width: 210px;
+	width: 280px;
 	float: left;
+	margin: 0;
+	padding: 0;
 }
 #side-nav ul{
-	width: 100%;
+	width: 150px;
 	overflow: hidden;
+	margin: 0;
 	margin-top: 60px;
+	margin-left: 20px;
 	padding:0;
 	line-height: 26px;
 
@@ -210,9 +216,14 @@ sidebar
 }
 #side-nav li a:hover{
 	color:#ffffff;
-	background-color: #bda873
+	border-bottom: 1px solid #fff;
 }
 #side-nav li a:active{
+	color:#fff;
+	background-color: transparent;
+	border-bottom:1px solid #fff ;
+}
+#side-nav li a.active{
 	color:#fff;
 	background-color: transparent;
 	border-bottom:1px solid #fff ;
@@ -242,7 +253,8 @@ sidebar
 #content{
 	width: 700px;
 	float: left;
-	margin-left:40px;
+	margin: 0;
+	padding: 0;
 }
 /************************************************************************************
 breadcrumb
@@ -281,6 +293,16 @@ breadcrumb
 }
 #breadcrumb ul li:first-child > a{
 	padding-left:0px;
+}
+
+#breadcrumb ul li a span{
+	color:#ccc;
+}
+#breadcrumb ul li a span:hover{
+	color:#fff;
+}
+#breadcrumb ul li a .current{
+	color:#fff;
 }
 /************************************************************************************
 Product list
@@ -341,6 +363,8 @@ Product list
 }
 .btn:hover{
 	background-color: #bda873;
+	border: none;
+
 }
 .btn:active{
 	border: none;
@@ -482,7 +506,6 @@ Footer
 	clear: both;
 	border-top:1px solid #4b4b4b;
 	text-align: center;
-	margin-top:10px;
 }
 #foot-nav{
 	width: 300px;

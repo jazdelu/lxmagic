@@ -19,7 +19,7 @@
 <div id="page-wrap">
     <header id ="header">
     	<div id="inner-head">
-    		<a href="/"><img src="/static/lxmagic/images/logo.png" id="logo" /></a>
+    		<a href="/" class="logo"><img src="/static/lxmagic/images/logo.png" /></a>
     		<nav id ="main-nav">
     			<ul>
           {% for i in header.menuitems.all reversed %}
@@ -56,35 +56,7 @@
 	</footer>
 </div>
 <script src="/static/lxmagic/js/jquery.min.js"></script>
-<script type="text/javascript">
-var closing = undefined;
-var closingInterval = undefined;
-
-function doClose() {
-    $(closing).children("ul").stop(true, true).slideUp(100);
-    closing = undefined;
-    closingInterval = undefined;
-}
-$("#side-nav>ul>li").children("ul").hide();
-$("#side-nav>ul>li>a").mouseenter(function() {
-    var $menu = $(this).closest('li');
-    if (closing) {
-        clearTimeout(closingInterval);
-        if (closing != $menu[0]) {
-            doClose();
-        }
-        else {
-            closing = undefined;
-            closingInterval = undefined;
-        }
-    }
-    $menu.children("ul").stop(true, true).slideDown(100);
-});
-$("#side-nav>ul>li").mouseleave(function() {
-    closing = this;
-    closingInterval = setTimeout(doClose, 100);
-});
-</script>
+<script src="/static/lxmagic/js/lx.js"></script>
 {% block js %}
 {% endblock %}
 </body>

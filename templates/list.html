@@ -23,13 +23,13 @@
 	  {% endfor %}
 	  <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
 	     <a itemprop="url" rel="up up up" href="{{ a.get_url }}">
-	        <span itemprop="title">{{ category.name }}<span>
+	        <span itemprop="title" class= "current">{{ category.name }}<span>
 	     </a>
 	  </li>
 	  {% else %}
 	  <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
 	     <a itemprop="url" rel="up up up" href="/product/">
-	        <span itemprop="title">所有产品<span>
+	        <span itemprop="title" class= "current">所有产品<span>
 	     </a>
 	  </li>  
 	  {% endif %}
