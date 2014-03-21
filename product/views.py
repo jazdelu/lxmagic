@@ -29,20 +29,18 @@ def get_product_by_id(request,pid):
 	return render_to_response('detail.html',{'product':product,'next_p':next_p,'prev_p':prev_p},context_instance=RequestContext(request))	
 
 def get_products_by_category(request,hierarchy):
-	slugs = hierarchy.split('/')
+	slugs = filter(None,hierarchy.split('/'))
+	print slugs
 	category =''
 	products = []
 	query_c = []
 	try: 
-		category = Category.objects.get(slug = slugs[-2])
+		category = Category.objects.get(slug = slugs[-1])
 		for c in category.get_descendants(include_self=True):
 			query_c.append(c)
 
 	except:
 		pass
-
-	print category
-	print query_c
 
 	if category:
 		products = Product.objects.filter(category__in = query_c)
