@@ -16,13 +16,16 @@ def get_product_by_id(request,pid):
 	i = products.index(product)
 	next_p =''
 	prev_p =''
-	if (i == 0):
-		next_p = products[i+1]
-	elif (i == len(products)-1):
-		prev_p = products[i-1]
+	if len(products)>1:
+		if (i == 0):
+			next_p = products[i+1]
+		elif (i == len(products)-1):
+			prev_p = products[i-1]
+		else:
+			next_p = products[i+1]
+			prev_p = products[i-1]
 	else:
-		next_p = products[i+1]
-		prev_p = products[i-1]
+		pass
 
 	return render_to_response('detail.html',{'product':product,'next_p':next_p,'prev_p':prev_p},context_instance=RequestContext(request))	
 
