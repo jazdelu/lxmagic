@@ -2,7 +2,7 @@
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFit
+from imagekit.processors import ResizeToFit, ResizeToFill
 import datetime
 from django.utils.timezone import utc
 # Create your models here.

@@ -41,7 +41,7 @@ class MenuItem(MPTTModel):
 	order = models.IntegerField(verbose_name = u'菜单项顺序',help_text = u'必须为整数,菜单顺序将按从大到小排列')
 
 	class MPTTMeta:
-		order_insertion_by = ['-order']
+		order_insertion_by = ['menu','-order']
 
 	class Meta:
 		verbose_name = u'菜单项'

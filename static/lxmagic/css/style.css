@@ -208,7 +208,7 @@ sidebar
 	font-weight: normal;
 	display: block;
 	padding-bottom: 5px;
-	width: 100px;
+	width: 120px;
 	text-align: center;
 	text-decoration: none;
 	color:#cccccc;
@@ -246,7 +246,7 @@ sidebar
 #side-nav li ul li a{
 	color: #fff;
 	font-size: 12px;
-	width:100px;
+	width:80px;
 	padding: 0;
 }
 
