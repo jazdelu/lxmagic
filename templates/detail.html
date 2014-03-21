@@ -13,7 +13,7 @@
     <li>></li>
     {% for a in product.category.get_ancestors %}
     <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-       <a itemprop="url" rel="up" href="{{ a.get_url }}/">
+       <a itemprop="url" rel="up" href="{{ a.get_url }}">
           <span itemprop="title">{{a.name}}</span>
        </a>
     </li>
