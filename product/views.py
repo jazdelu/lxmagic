@@ -32,14 +32,20 @@ def get_products_by_category(request,hierarchy):
 	slugs = hierarchy.split('/')
 	category =''
 	products = []
-	try:
+	query_c = []
+	try: 
 		category = Category.objects.get(slug = slugs[-2])
+		for c in category.get_descendants(include_self=True):
+			query_c.append(c)
+
 	except:
-		print hierarchy
-		print slugs
-		print slugs[-1]
+		pass
+
+	print category
+	print query_c
+
 	if category:
-		products = Product.objects.filter(category = category)
+		products = Product.objects.filter(category__in = query_c)
 
 	return render_to_response('list.html',{'products':products,'category':category},context_instance=RequestContext(request))
 
